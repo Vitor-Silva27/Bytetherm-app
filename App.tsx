@@ -1,20 +1,31 @@
+import 'react-native-gesture-handler';
+import 'react-native-screens';
+import { poppinsFonts } from '@/shared/styles/fonts/poppins';
+import { useFonts } from '@expo-google-fonts/poppins';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useCallback } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
+import { View } from 'react-native';
+import { RootNavigator } from '@/navigation';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+   const [fontsLoaded] = useFonts(poppinsFonts);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+     <RootNavigator />
+     <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
