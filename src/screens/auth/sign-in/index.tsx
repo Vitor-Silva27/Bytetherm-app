@@ -8,6 +8,7 @@ import { TextField } from "@/shared/components/form/textField";
 import { CtaButton } from "@/shared/components/ctaButton/CtaButton";
 import { useSignIn } from "@/modules/auth/hooks/useSignIn";
 import Toast from 'react-native-toast-message';
+import { storage } from "@/shared/storage/storage";
 
 export function SignInScreen() {
     const {
@@ -22,23 +23,10 @@ export function SignInScreen() {
         },
     });
 
-    const {mutateAsync, isPending} = useSignIn();
+    const {mutate, isPending} = useSignIn();
 
-    async function onSubmit(data: SignInForm) {
-        try {
-            await mutateAsync(data);
-            Toast.show({
-                type: "success",
-                text1: "Sign In Successful",
-                text2: "Welcome back!"
-            })
-        } catch (error) {            
-            Toast.show({
-                type: "error",
-                text1: "Sign In Failed",
-                text2: "email or password is incorrect"
-            })
-        }
+    function onSubmit(data: SignInForm) {
+        mutate(data);
     }
 
     return (

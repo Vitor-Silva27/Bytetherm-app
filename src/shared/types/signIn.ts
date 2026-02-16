@@ -9,7 +9,7 @@ export type SignInRequest = {
 };
 
 export type SignInResponse = {
-  accessToken: string;
+  token: string;
   user: {
     id: string;
     name: string;
