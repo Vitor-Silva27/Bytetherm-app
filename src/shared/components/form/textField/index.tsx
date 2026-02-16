@@ -10,12 +10,10 @@ export function TextField<T extends FieldValues>({
   name,
   control,
   placeholder,
-  secureTextEntry,
+  isPassword,
   error
 }: TextFieldProps<T>) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
-  const isPasswordField = !!secureTextEntry;
 
   return (
     <View style={styles.container}>
@@ -28,12 +26,12 @@ export function TextField<T extends FieldValues>({
           render={({ field: { onChange, value } }) => (
             <TextInput
               secureTextEntry={
-                isPasswordField && !isPasswordVisible
+                isPassword && !isPasswordVisible
               }
               style={[
                 styles.input,
                 error && styles.inputError,
-                isPasswordField && styles.inputWithIcon,
+                isPassword && styles.inputWithIcon,
               ]}
               placeholder={placeholder}
               value={value}
@@ -42,7 +40,7 @@ export function TextField<T extends FieldValues>({
           )}
         />
 
-        {isPasswordField && (
+        {isPassword && (
           <TouchableOpacity
             style={styles.icon}
             onPress={() =>

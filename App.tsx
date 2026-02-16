@@ -8,6 +8,10 @@ import * as SplashScreen from 'expo-splash-screen';
 import { View } from 'react-native';
 import { RootNavigator } from '@/navigation';
 import { colors } from '@/shared/styles/colors';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from '@/libs/reactQuery/reactQuery';
+import Toast from 'react-native-toast-message';
+import toastConfig from '@/shared/components/toast/toastConfig';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -24,9 +28,12 @@ export default function App() {
     return null;
   }
   return (
-    <View style={{ flex: 1, backgroundColor: colors.gray_100 }} onLayout={onLayoutRootView}>
-     <RootNavigator />
-     <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View style={{ flex: 1, backgroundColor: colors.gray_100 }} onLayout={onLayoutRootView}>
+        <RootNavigator />
+        <Toast position='top' autoHide={true} visibilityTime={3000} config={toastConfig} />
+        <StatusBar style="auto" />
+      </View>
+    </QueryClientProvider>
   );
 }

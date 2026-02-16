@@ -1,12 +1,13 @@
-import { Image, KeyboardAvoidingView, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Image, KeyboardAvoidingView, Text, View } from "react-native";
 import { styles } from "./styles";
 import { useForm } from "react-hook-form";
-import { SignInForm } from "@/shared/types/signInForm";
+import { SignInForm } from "@/shared/types/signIn";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/modules/auth/schemas/signIn";
 import { TextField } from "@/shared/components/form/textField";
 import { CtaButton } from "@/shared/components/ctaButton/CtaButton";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { useSignIn } from "@/modules/auth/hooks/useSignIn";
+import Toast from 'react-native-toast-message';
 
 export function SignInScreen() {
     const {
@@ -21,8 +22,23 @@ export function SignInScreen() {
         },
     });
 
-    function onSubmit(data: SignInForm) {
-        console.log(data);
+    const {mutateAsync, isPending} = useSignIn();
+
+    async function onSubmit(data: SignInForm) {
+        try {
+            await mutateAsync(data);
+            Toast.show({
+                type: "success",
+                text1: "Sign In Successful",
+                text2: "Welcome back!"
+            })
+        } catch (error) {            
+            Toast.show({
+                type: "error",
+                text1: "Sign In Failed",
+                text2: "email or password is incorrect"
+            })
+        }
     }
 
     return (
@@ -44,11 +60,11 @@ export function SignInScreen() {
                                 control={control}
                                 name="password"
                                 placeholder="Password"
-                                secureTextEntry
+                                isPassword
                                 error={errors.password}
                             />
                     </View>
-                    <CtaButton title="Sign In" onPress={handleSubmit(onSubmit)} />
+                    <CtaButton title={isPending ? "Signing In..." : "Sign In"} disabled={isPending} onPress={handleSubmit(onSubmit)} />
                 </View>
             </KeyboardAvoidingView>
         </View>

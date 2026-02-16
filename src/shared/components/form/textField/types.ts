@@ -4,7 +4,7 @@ export type TextFieldProps<T extends FieldValues> = {
     name: Path<T>;
     control: Control<T>;
     placeholder?: string;
-    secureTextEntry?: boolean;
+    isPassword?: boolean;
     error?: FieldError;
     icon?: React.ReactNode;
 }
