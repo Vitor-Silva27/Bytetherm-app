@@ -12,8 +12,9 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/libs/reactQuery/reactQuery';
 import Toast from 'react-native-toast-message';
 import toastConfig from '@/shared/components/toast/toastConfig';
+import { AuthProvider } from '@/providers/authProvider';
 
-SplashScreen.preventAutoHideAsync();
+//SplashScreen.preventAutoHideAsync();
 
 export default function App() {
    const [fontsLoaded] = useFonts(poppinsFonts);
@@ -29,11 +30,13 @@ export default function App() {
   }
   return (
     <QueryClientProvider client={queryClient}>
+      <AuthProvider>
       <View style={{ flex: 1, backgroundColor: colors.gray_100 }} onLayout={onLayoutRootView}>
         <RootNavigator />
         <Toast position='top' autoHide={true} visibilityTime={3000} config={toastConfig} />
         <StatusBar style="auto" />
       </View>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
