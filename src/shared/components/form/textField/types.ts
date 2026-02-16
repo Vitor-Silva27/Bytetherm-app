@@ -6,4 +6,5 @@ export type TextFieldProps<T extends FieldValues> = {
     placeholder?: string;
     secureTextEntry?: boolean;
     error?: FieldError;
+    icon?: React.ReactNode;
 }

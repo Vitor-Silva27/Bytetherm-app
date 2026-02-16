@@ -25,5 +25,18 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: fontFamily.regular,
         color: colors.red
-    }
+    },
+    inputWrapper: {
+        position: "relative",
+        justifyContent: "center",
+    },
+
+    inputWithIcon: {
+        paddingRight: 45,
+    },
+
+    icon: {
+        position: "absolute",
+        right: 16,
+    },
 })

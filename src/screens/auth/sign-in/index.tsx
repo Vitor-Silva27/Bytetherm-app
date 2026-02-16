@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/modules/auth/schemas/signIn";
 import { TextField } from "@/shared/components/form/textField";
 import { CtaButton } from "@/shared/components/ctaButton/CtaButton";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export function SignInScreen() {
     const {
@@ -31,20 +32,22 @@ export function SignInScreen() {
                 <View style={styles.formWrapper}>
                     <Text style={styles.formTitle}>Welcome back!</Text>
                     <Text style={styles.formSubtitle}>Let's log you in</Text>
-                        <TextField<SignInForm>
-                            control={control}
-                            name="email"
-                            placeholder="Email"
-                            error={errors.email}
-                        />
+                    <View style={styles.fieldsWrapper}>
+                            <TextField<SignInForm>
+                                control={control}
+                                name="email"
+                                placeholder="Email"
+                                error={errors.email}
+                            />
 
-                        <TextField<SignInForm>
-                            control={control}
-                            name="password"
-                            placeholder="Password"
-                            secureTextEntry
-                            error={errors.password}
-                        />
+                            <TextField<SignInForm>
+                                control={control}
+                                name="password"
+                                placeholder="Password"
+                                secureTextEntry
+                                error={errors.password}
+                            />
+                    </View>
                     <CtaButton title="Sign In" onPress={handleSubmit(onSubmit)} />
                 </View>
             </KeyboardAvoidingView>

@@ -1,5 +1,6 @@
 import { colors } from "@/shared/styles/colors";
 import { fontFamily } from "@/shared/styles/fonts/fontFamily";
+import { fields } from "@hookform/resolvers/ajv/src/__tests__/__fixtures__/data.js";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -38,5 +39,10 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: fontFamily.light,
         color: colors.gray_700
+    },
+    fieldsWrapper: {
+        width: "100%",
+        marginVertical: 48,
+        gap: 16
     }
 })
