@@ -1,15 +1,30 @@
 import { colors } from "@/shared/styles/colors";
+import { fontFamily } from "@/shared/styles/fonts/fontFamily";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.gray_100
+        backgroundColor: colors.gray_100,
+        paddingVertical: 90,
+        paddingHorizontal: 30
     },
     text: {
         fontSize: 24,
-        fontWeight: "bold",
+        fontFamily: fontFamily.light,
     },
+    image: {
+        resizeMode: "contain",
+        width: 160,
+    },
+    readingsContainer: {
+        flex: 1,
+        width: "100%"
+    },
+    readingItem: {
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.gray_100
+    }
 });

@@ -18,7 +18,7 @@ export const AppNavigator: React.FC = () => (
     }}/>
     <Tab.Screen component={RoomsScreen} name="Rooms" options={{
       tabBarIcon: ({ focused}) => (
-        <Ionicons name="chatbubbles" size={24} color={focused ? colors.white : colors.gray_500} />
+        <Ionicons name="business" size={24} color={focused ? colors.white : colors.gray_500} />
       ),
     }}/>
     <Tab.Screen component={UsersScreen} name="Users" options={{
