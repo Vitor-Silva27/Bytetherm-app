@@ -13,6 +13,7 @@ import { queryClient } from '@/libs/reactQuery/reactQuery';
 import Toast from 'react-native-toast-message';
 import toastConfig from '@/shared/components/toast/toastConfig';
 import { AuthProvider } from '@/providers/authProvider';
+import { Loading } from '@/shared/components/loading/loading';
 
 //SplashScreen.preventAutoHideAsync();
 
@@ -26,12 +27,12 @@ export default function App() {
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    return null;
+    return <Loading />;
   }
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-      <View style={{ flex: 1, backgroundColor: colors.gray_100 }} onLayout={onLayoutRootView}>
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <RootNavigator />
         <Toast position='top' autoHide={true} visibilityTime={3000} config={toastConfig} />
         <StatusBar style="auto" />
