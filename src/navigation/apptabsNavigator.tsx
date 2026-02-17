@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
-export const AppNavigator: React.FC = () => (
+export const AppTabsNavigator: React.FC = () => (
   <Tab.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }} tabBar={props => <MyTabBar {...props} />}>
     <Tab.Screen component={MainScreen} name="Home" options={{
       tabBarIcon: ({ focused}) => (

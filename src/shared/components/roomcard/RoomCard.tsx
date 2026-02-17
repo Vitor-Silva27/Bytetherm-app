@@ -3,7 +3,7 @@ import { RoomCardProps } from "./types";
 import { styles } from "./styles";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { colors } from "@/shared/styles/colors";
-import { LinkButton } from "../linkButton/LinkButton";
+import { LinkButton } from "@/shared/components/linkButton/LinkButton";
 
 export function RoomCard({ humidity, name, temperature }: RoomCardProps) {
     return (
@@ -12,7 +12,7 @@ export function RoomCard({ humidity, name, temperature }: RoomCardProps) {
             <View style={styles.infosContainer}>
                 <View style={styles.infoWrapper}>
                     <View style={[styles.iconWrapper, { backgroundColor: colors.primary }]}>
-                        <MaterialCommunityIcons name="heat-wave" size={24} color={colors.white} />s
+                        <MaterialCommunityIcons name="heat-wave" size={24} color={colors.white} />
                     </View>
                     <View style={styles.textWrapper}>
                         <Text style={styles.label}>Temperature</Text>
