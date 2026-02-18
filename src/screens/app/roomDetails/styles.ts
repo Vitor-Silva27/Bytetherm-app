@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
     goBackContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 16
     },
     goBackButton: {
         flexDirection: "row",
@@ -32,6 +31,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        paddingBottom: 20,
     },
     chartsContainer: {
         paddingBottom: 40,

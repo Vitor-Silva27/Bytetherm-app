@@ -1,6 +1,11 @@
 export interface Room {
   _id: string;
   name: string;
+  microcontrollerId: string;
+  minTemperature: number;
+  maxTemperature: number;
+  minHumidity: number;
+  maxHumidity: number;
 }
 
 export type ReadingTime = {
