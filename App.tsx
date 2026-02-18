@@ -35,7 +35,7 @@ export default function App() {
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <RootNavigator />
         <Toast position='top' autoHide={true} visibilityTime={3000} config={toastConfig} />
-        <StatusBar style="auto" />
+        <StatusBar style="dark" />
       </View>
       </AuthProvider>
     </QueryClientProvider>
