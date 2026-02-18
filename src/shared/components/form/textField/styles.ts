@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.gray_200,
         borderRadius: 50,
         padding: 16,
+        color: colors.black,
     },
     inputError: {
         borderWidth: 1,

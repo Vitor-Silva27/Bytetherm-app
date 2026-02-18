@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { TextFieldProps } from "./types";
 import { styles } from "./styles";
+import { colors } from "@/shared/styles/colors";
 
 export function TextField<T extends FieldValues>({
   name,
@@ -34,8 +35,10 @@ export function TextField<T extends FieldValues>({
                 isPassword && styles.inputWithIcon,
               ]}
               placeholder={placeholder}
+              placeholderTextColor={"#595B5D"}
               value={value}
               onChangeText={onChange}
+              autoCapitalize="none"
             />
           )}
         />
@@ -54,7 +57,7 @@ export function TextField<T extends FieldValues>({
                   : "eye-outline"
               }
               size={20}
-              color="#666"
+              color="#595B5D"
             />
           </TouchableOpacity>
         )}

@@ -21,9 +21,9 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
     },
     iconWrapper: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
         marginRight: 10

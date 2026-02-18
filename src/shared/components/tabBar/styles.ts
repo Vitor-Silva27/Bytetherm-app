@@ -9,7 +9,9 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.gray_100,
         paddingHorizontal: 30,
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        maxHeight: 60,
+        marginBottom: 10,    
     },
     label: {
         color: colors.white,
@@ -22,8 +24,8 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.white,
         justifyContent: 'center',
         borderRadius: 30,
-        width: 60,
-        height: 60
+        width: 50,
+        height: 50
     },
     selectedLabelWrapper: {
         flexDirection: 'row',
@@ -33,6 +35,6 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 30,
-        height: 60,
+        height: 50,
     }
 })
