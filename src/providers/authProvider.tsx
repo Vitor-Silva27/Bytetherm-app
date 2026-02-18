@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { api } from "@/libs/axios/axios";
+import { api, registerSignOutCallback } from "@/libs/axios/axios";
 import { storage } from "@/shared/storage/storage";
+import { useQueryClient } from "@tanstack/react-query";
+
 
 type AuthContextData = {
   token: string | null;
@@ -15,6 +17,7 @@ export const AuthContext = createContext({} as AuthContextData);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     async function loadToken() {
@@ -34,16 +37,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     loadToken();
   }, []);
-
+  
   function signIn(newToken: string) {
-    storage.set("token", newToken);
-    setToken(newToken);
-  }
+      storage.set("token", newToken);
+      setToken(newToken);
+    }
+  
+    function signOut() {
+      storage.remove("token");
+      setToken(null); 
+      queryClient.clear();
+    }
 
-  function signOut() {
-    storage.remove("token");
-    setToken(null);
-  }
+  useEffect(() => {
+    registerSignOutCallback(signOut);
+  }, []);
+
 
   return (
     <AuthContext.Provider

@@ -5,7 +5,7 @@ import { Loading } from "@/shared/components/loading/loading";
 import { RoomCard } from "@/shared/components/roomcard/RoomCard";
 
 export function MainScreen() {
-    const { data: roomsConditions, isLoading, isFetching, refetch } = useGetRoomsConditions();
+    const { data: roomsConditions, isLoading, isFetching, refetch, error } = useGetRoomsConditions();
 
     if (isLoading) {
         return <Loading />;

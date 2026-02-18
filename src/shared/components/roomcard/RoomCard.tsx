@@ -5,7 +5,7 @@ import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { colors } from "@/shared/styles/colors";
 import { LinkButton } from "@/shared/components/linkButton/LinkButton";
 
-export function RoomCard({ humidity, name, temperature }: RoomCardProps) {
+export function RoomCard({ id, humidity, name, temperature }: RoomCardProps) {
     return (
         <View style={styles.container}>
             <Text style={styles.name}>{name}</Text>
@@ -29,7 +29,7 @@ export function RoomCard({ humidity, name, temperature }: RoomCardProps) {
                     </View>
                 </View>
             </View>
-            <LinkButton />
+            <LinkButton to="RoomDetails" text="View Details" options={{ roomId: id }} />
         </View>
     )
 }

@@ -1,6 +1,12 @@
 import { storage } from "@/shared/storage/storage";
 import axios from "axios";
 
+let signOutRequest: (() => void) | null = null;
+
+export function registerSignOutCallback(callback: () => void) {
+  signOutRequest = callback;
+}
+
 export const api = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL,
 });
@@ -19,7 +25,11 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      storage.remove("token");
+      if (signOutRequest) {
+        signOutRequest(); 
+      } else {
+        storage.remove("token");
+      }
     }
 
     return Promise.reject(error);

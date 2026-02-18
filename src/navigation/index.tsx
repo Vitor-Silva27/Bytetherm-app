@@ -2,7 +2,7 @@ import { useAuth } from '@/modules/auth/hooks/useAuth';
 import { AuthNavigator } from '@/navigation/authNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import { Loading } from '@/shared/components/loading/loading';
-import { AppStackNavigator } from './homeStackNavigator';
+import { AppStackNavigator } from './appStackNavigator';
 
 export const RootNavigator: React.FC = () => {
 
