@@ -10,19 +10,6 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 30,
         backgroundColor: colors.gray_100
     },
-    goBackContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    goBackButton: {
-        flexDirection: "row",
-        alignItems: "center",
-    },
-    goBackText: {
-        fontSize: 16,
-        fontFamily: fontFamily.regular,
-        marginLeft: 10,
-    },
     name: {
         fontSize: 18,
         fontFamily: fontFamily.bold,

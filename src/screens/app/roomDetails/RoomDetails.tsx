@@ -7,6 +7,7 @@ import { useGetRoomDetails } from "@/modules/room/hooks/useGetRoomDetails";
 import { formatDateLocal } from "@/shared/utils/formatDate";
 import { MyLineChart } from "@/shared/components/myLineChart/MyLineChart";
 import { Loading } from "@/shared/components/loading/loading";
+import { GoBack } from "@/shared/components/goBack/GoBack";
 
 export function RoomDetails() {
     const navigation = useNavigation();
@@ -33,12 +34,7 @@ export function RoomDetails() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <View style={styles.goBackContainer}>
-                    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.goBackButton}>
-                        <Ionicons name="arrow-back" size={24} color="black" />
-                    </TouchableOpacity>
-                    <Text style={styles.goBackText}>Go back</Text>
-                </View>
+                <GoBack />
                 <Text style={styles.name}>{data?.room.name}</Text>
             </View>
 

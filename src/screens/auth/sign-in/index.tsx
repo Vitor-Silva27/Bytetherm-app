@@ -7,8 +7,6 @@ import { signInSchema } from "@/modules/auth/schemas/signIn";
 import { TextField } from "@/shared/components/form/textField";
 import { CtaButton } from "@/shared/components/ctaButton/CtaButton";
 import { useSignIn } from "@/modules/auth/hooks/useSignIn";
-import Toast from 'react-native-toast-message';
-import { storage } from "@/shared/storage/storage";
 
 export function SignInScreen() {
     const {

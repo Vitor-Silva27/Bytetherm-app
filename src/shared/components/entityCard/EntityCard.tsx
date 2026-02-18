@@ -1,17 +1,21 @@
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { EntityCardProps } from "./types";
 import { styles } from "./styles";
 import { colors } from "@/shared/styles/colors";
 import { LinkButton } from "../linkButton/LinkButton";
 
-export default function EntityCard({ title, info }: EntityCardProps) {
+export default function EntityCard({ title, info, deleteAction }: EntityCardProps) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>{title}</Text>
                 <View style={styles.actions}>
                     <LinkButton to={`/edit/${title}`} text="Edit" />
-                    <Text style={[styles.actionText, {color: colors.red}]}>Delete</Text>
+                    {deleteAction && (
+                        <TouchableOpacity onPress={deleteAction}>
+                            <Text style={[styles.actionText, {color: colors.red}]}>Delete</Text>
+                        </TouchableOpacity>
+                    )}
                 </View>
             </View>
             <View style={styles.infoList}>
