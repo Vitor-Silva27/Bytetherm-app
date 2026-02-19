@@ -8,12 +8,11 @@ export function useDeleteRoom() {
   
   return useMutation({
     mutationFn: deleteRoom,
-    onSuccess: (data) => {
+    onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["rooms"] });
       Toast.show({
         type: "success",
         text1: "Room deleted successfully",
-        text2: `Room "${data.name}" has been deleted.`,
       });
     },
     onError: () => {

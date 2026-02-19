@@ -7,10 +7,14 @@ import { LinkButton } from '@/shared/components/linkButton/LinkButton';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '@/shared/styles/colors';
 import { useDeleteRoom } from '@/modules/room/hooks/usedeleteRoom';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { AppStackParamList } from '@/navigation/types';
 
 export function RoomsScreen() {
     const { data, isLoading, isFetching, refetch } = useGetAllRooms();
     const { mutate: deleteRoomMutation } = useDeleteRoom();
+    const navigation = useNavigation<NativeStackNavigationProp<AppStackParamList, 'tabs'>>();
 
     function handleRemoveRoom(roomId: string, roomName: string) {
         Alert.alert(
@@ -54,6 +58,7 @@ export function RoomsScreen() {
                                 { label: "Microcontroller ID", value: item.microcontrollerId }
                             ]} 
                             deleteAction={() => handleRemoveRoom(item._id, item.name)} 
+                            editAction={() => navigation.navigate('addRoom', { roomToEdit: item })}
                         />
                     )}
                 />

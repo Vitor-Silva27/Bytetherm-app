@@ -7,4 +7,5 @@ export type EntityCardProps = {
     title: string;
     info: InfoItem[];
     deleteAction?: () => void;
+    editAction?: () => void;
 }

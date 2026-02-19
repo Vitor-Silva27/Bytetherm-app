@@ -15,8 +15,6 @@ import toastConfig from '@/shared/components/toast/toastConfig';
 import { AuthProvider } from '@/providers/authProvider';
 import { Loading } from '@/shared/components/loading/loading';
 
-//SplashScreen.preventAutoHideAsync();
-
 export default function App() {
    const [fontsLoaded] = useFonts(poppinsFonts);
 

@@ -32,3 +32,9 @@ export type CreateRoomForm = {
   name: string;
   microcontrollerId: string;
 }
+
+export type EditRoomForm = {
+  _id: string;
+  name?: string;
+  microcontrollerId?: string;
+}
