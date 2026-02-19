@@ -6,4 +6,5 @@ export type AppStackParamList = {
     RoomDetails: { roomId: string }; 
     addRoom: { roomToEdit?: Room };
     addUser: undefined;
+    editUser: { userToEdit: User };
 };

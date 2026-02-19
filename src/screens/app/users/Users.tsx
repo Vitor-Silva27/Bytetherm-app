@@ -59,7 +59,7 @@ export function UsersScreen() {
                                 { label: "role", value: item.role }
                             ]} 
                             deleteAction={() => handleRemoveUser(item._id, item.name)} 
-                            editAction={() => {}}
+                            editAction={() => navigation.navigate('editUser', { userToEdit: item })}
                         />
                     )}
                 />
