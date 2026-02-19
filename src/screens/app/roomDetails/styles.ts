@@ -2,6 +2,7 @@ import { colors } from "@/shared/styles/colors";
 import { fontFamily } from "@/shared/styles/fonts/fontFamily";
 import { StyleSheet } from "react-native";
 import { date } from "zod";
+import { no } from "zod/v4/locales";
 
 export const styles = StyleSheet.create({
     container: {
@@ -33,5 +34,17 @@ export const styles = StyleSheet.create({
         fontFamily: fontFamily.regular,
         textAlign: 'center',
         marginBottom: 20,
+    },
+    noDataContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    noDataText: {
+        fontSize: 24,
+        fontFamily: fontFamily.regular,
+        color: colors.gray_500,
+        textAlign: 'center',
+        marginTop: 10,
     },
 })

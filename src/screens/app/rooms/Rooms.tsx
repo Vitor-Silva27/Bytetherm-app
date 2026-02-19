@@ -1,16 +1,16 @@
 import { useGetAllRooms } from '@/modules/room/hooks/useGetAllRooms';
 import { Loading } from '@/shared/components/loading/loading';
-import { FlatList, Image, Text, View, Alert } from 'react-native'; // 👈 Importe Alert
+import { FlatList, Image, Text, View, Alert } from 'react-native';
 import { styles } from './styles';
 import EntityCard from '@/shared/components/entityCard/EntityCard';
 import { LinkButton } from '@/shared/components/linkButton/LinkButton';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '@/shared/styles/colors';
-import { useDeleteRoom } from '@/modules/room/hooks/usedeleteRoom'; // Corrija o casing se necessário
+import { useDeleteRoom } from '@/modules/room/hooks/usedeleteRoom';
 
 export function RoomsScreen() {
     const { data, isLoading, isFetching, refetch } = useGetAllRooms();
-    const { mutate: deleteRoomMutation, isPending } = useDeleteRoom();
+    const { mutate: deleteRoomMutation } = useDeleteRoom();
 
     function handleRemoveRoom(roomId: string, roomName: string) {
         Alert.alert(
