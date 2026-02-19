@@ -24,8 +24,8 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.white,
         justifyContent: 'center',
         borderRadius: 30,
-        width: 50,
-        height: 50
+        width: 55,
+        height: 55
     },
     selectedLabelWrapper: {
         flexDirection: 'row',
