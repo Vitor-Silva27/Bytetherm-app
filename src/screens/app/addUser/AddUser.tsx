@@ -1,5 +1,5 @@
 import { AppStackParamList } from '@/navigation/types';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { styles } from './styles';
@@ -20,7 +20,6 @@ export function AddUser() {
     const {
         control,
         handleSubmit,
-        setError,
         formState: { errors }
     } = useForm<AddUserForm>({
         resolver: zodResolver(addUserSchema),

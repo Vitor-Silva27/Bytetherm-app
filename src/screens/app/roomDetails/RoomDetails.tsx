@@ -2,7 +2,7 @@ import { Text, View, ScrollView } from "react-native";
 import { useRoute } from '@react-navigation/native';
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useGetRoomDetails } from "@/modules/room/hooks/useGetRoomDetails";
 import { formatDateLocal } from "@/shared/utils/formatDate";
 import { MyLineChart } from "@/shared/components/myLineChart/MyLineChart";

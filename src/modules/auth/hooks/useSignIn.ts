@@ -14,7 +14,7 @@ export function useSignIn() {
     onSuccess: (data) => {
       storage.set("token", data.token);
       storage.set("user", JSON.stringify(data.user));
-      signIn(data.token);
+      signIn(data.token, data.user);
     },
     onError: () => {
       Toast.show({

@@ -11,8 +11,9 @@ export type SignInRequest = {
 export type SignInResponse = {
   token: string;
   user: {
-    id: string;
+    _id: string;
     name: string;
     email: string;
+    role: "user" | "admin";
   };
 };

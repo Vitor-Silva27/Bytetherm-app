@@ -28,7 +28,7 @@ export function SignInScreen() {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container]}>
             <Image source={require('@assets/logo.png')} style={styles.image} />
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior="padding">
                 <View style={styles.formWrapper}>
